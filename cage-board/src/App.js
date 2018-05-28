@@ -2,33 +2,30 @@ import React, { Component } from 'react';
 import './App.css';
 import ButtonsContainer from './components/ButtonsContainer.js'
 import VideoContainer from './components/VideoContainer.js'
-import Hello from './assets/Hello.mp4'
-// import * as video from './assets/'
+import data from './assets/data.js'
 
-const fakeVideoData = [
-  { id: 1, url: '', }
-]
-// write a function that takes in the videos and outputs this object
-//object = { 1: video1, 2: video2}
 class App extends Component {
 
   state = {
-    isClicked: false
+    isClicked: false,
+    currentPath: "",
   }
 
-  handleClick = () => {
+  handleClick = (id, e) => {
+
     this.setState({
-      isClicked: true
+      isClicked: true,
+      currentPath: id
     })
 
   }
 
   render() {
-    console.log(`videos: `, Hello)
+    // console.log(`data: `, data)
     return (
       <div className="App">
-        <VideoContainer isClicked={this.state.isClicked}/>
-        <ButtonsContainer handleClick={this.handleClick}/>
+        <VideoContainer isClicked={this.state.isClicked} currentPath={this.state.currentPath}/>
+        <ButtonsContainer handleClick={this.handleClick} data={data}/>
       </div>
     );
   }

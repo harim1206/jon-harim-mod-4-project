@@ -6,17 +6,14 @@ import '../css/style.css'
 
 class ButtonsContainer extends React.Component{
   render(){
+    
+    const buttons = this.props.data.map((button)=>{
+      return <Button id={button.id} pathVar={button.pathVar} handleClick={this.props.handleClick}/>
+    })
+
     return(
       <div className="buttons-container">
-        <Button handleClick={this.props.handleClick}/>
-        <Button/>
-        <Button/>
-        <Button/>
-        <Button/>
-        <Button/>
-        <Button/>
-        <Button/>
-        <Button/>
+        {buttons}
       </div>
     )
   }
